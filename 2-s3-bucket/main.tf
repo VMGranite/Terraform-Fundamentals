@@ -11,6 +11,10 @@ provider "aws" {
 # Create an S3 bucket
 resource "aws_s3_bucket" "example_bucket" {
   bucket = local.bucket_name
+  tags = {
+    Name        = "My bucket from ${local.bucket_name}"
+    Environment = "Dev"
+  }
 }
 
 # Create an IAM role for the EC2 instance
